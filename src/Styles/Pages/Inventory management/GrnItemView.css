@@ -1,0 +1,28 @@
+.footer-summary {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+   align-self: flex-end;
+    padding-top: 20px;
+    padding-right: 20px;
+  }
+  
+  .footer-summary--item {
+    display: flex;
+    font-size: 22px;
+    margin-bottom: 5px;
+  }
+  
+  .footer-summary--item span:first-child {
+    font-weight: bold;
+  }
+  
+  .footer-summary--item span:last-child {
+    font-weight: 700;
+    margin-left: auto;
+  }
+
+  .EntryAddButton{
+    margin-top: 10px;
+    margin-left: 10px;
+  }

@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import SideBar from "./Component/SideBar/SideBar";
+
+import Header from "./Component/Header/Header";
+import "./App.css";
+import DashboardComponent from "./Component/Dashboard/Dashboard";
+import RequestApprovalComponent from "./Component/RequestApproval/RequestApproval";
+import ProfileComponent from "./Component/Profile/Profile";
 
 function App() {
+  const [selectedComponent, setSelectedComponent] = useState("Dashboard");
+
+  const handleSidebarItemClick = (itemName) => {
+    setSelectedComponent(itemName);
+  };
+
+  const renderSelectedComponent = () => {
+    switch (selectedComponent) {
+      case "Dashboard":
+        return <DashboardComponent />;
+      case "Request Approval":
+        return <RequestApprovalComponent />;
+      case "Profile":
+        return <ProfileComponent />;
+      default:
+        return null;
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="dashboard">
+      <SideBar onItemClick={handleSidebarItemClick} />
+      <div className="dashboard--wrap">
+        <div>
+          <Header />
+        </div>
+        <div className="dashboard--content">{renderSelectedComponent()}</div>
+      </div>
     </div>
   );
 }
