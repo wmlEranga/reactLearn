@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import { BiUser, BiBook, BiMessage } from "react-icons/bi";
 import "../../Styles/SideBar/SideBar.css";
 import CompanyProfile from "./companyProfile";
 
-function SideBar({ onItemClick }) {
-  const handleItemClick = (itemName) => {
-    onItemClick(itemName);
-  };
-
+function SideBar() {
   return (
     <div className="menu">
       <div className="pharmacy-profile">
@@ -15,26 +12,18 @@ function SideBar({ onItemClick }) {
       </div>
 
       <div className="menu--list">
-        <a
-          href="#"
-          className="item"
-          onClick={() => handleItemClick("Dashboard")}
-        >
+        <Link to="/dashboard" className="item">
           <BiBook className="logo-icon" />
           Dashboard
-        </a>
-        <a
-          href="#"
-          className="item"
-          onClick={() => handleItemClick("Request Approval")}
-        >
+        </Link>
+        <Link to="/request-approval" className="item">
           <BiMessage className="logo-icon" />
           Request Approval
-        </a>
-        <a href="#" className="item" onClick={() => handleItemClick("Profile")}>
+        </Link>
+        <Link to="/profile" className="item">
           <BiUser className="logo-icon" />
           Profile
-        </a>
+        </Link>
       </div>
     </div>
   );
